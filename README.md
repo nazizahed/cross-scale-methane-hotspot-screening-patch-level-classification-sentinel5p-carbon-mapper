@@ -11,14 +11,25 @@ matching.
 
 ## Research Workflow
 
-```mermaid
-flowchart LR
-    A["Stage 0<br/>Carbon Mapper data access"] --> B["Carbon Mapper plume CSV"]
-    B --> C["Stage 1<br/>Cross-sensor visibility"]
-    B --> D["Stage 2<br/>Monthly bivariate matching"]
-    C --> E["Ranked plume events<br/>and daily S5P context"]
-    D --> F["Monthly S5P classes<br/>and plume summaries"]
+```text
+Stage 0: Carbon Mapper data access
+                 |
+                 v
+       Carbon Mapper plume CSV
+          /               \
+         v                 v
+Stage 1: Daily       Stage 2: Monthly
+cross-sensor         bivariate mapping
+visibility           and plume matching
+         |                 |
+         v                 v
+Ranked plume events   Monthly S5P classes
+and daily S5P context and plume summaries
 ```
+
+Stage 0 provides the shared plume catalogue. Stage 1 analyzes short-term
+cross-sensor visibility around selected Tanager events, while Stage 2 assigns
+plumes to monthly Sentinel-5P observation and exceedance classes.
 
 ## Implemented Stages
 
