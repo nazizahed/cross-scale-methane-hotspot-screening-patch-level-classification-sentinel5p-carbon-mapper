@@ -18,6 +18,12 @@ stage1_outputs/
 stage2_outputs/
 stage2_bivariate_outputs/
 stage2_bivariate_exports/
+stage3_local_anomaly/
+stage3_XCH4_mean/
+stage3_gee_anomaly_enhancement/
+local_products/
+summary_tables/
+figures/
 plumes_*.csv
 state_stats*.csv
 *.html

@@ -6,8 +6,8 @@ observations with coarse-resolution Sentinel-5P atmospheric measurements.
 
 The current implementation focuses on Carbon Mapper/Tanager methane plume
 data and Sentinel-5P XCH4. It provides data access, plume prioritization,
-cross-sensor temporal analysis, monthly bivariate mapping, and plume-to-raster
-matching.
+cross-sensor temporal analysis, monthly bivariate mapping, local anomaly
+enhancement, and plume-to-raster matching.
 
 ## Research Workflow
 
@@ -23,6 +23,11 @@ Produces ranked Tanager plume events and daily Sentinel-5P context.
 
 Produces monthly Sentinel-5P classes and plume-level class summaries.
 
+**Stage 0 output feeds Stage 3: Local anomaly and enhancement**
+
+Produces local-background anomaly products, standardized enhancement masks,
+and kernel-sensitivity plume-overlap summaries.
+
 ## Implemented Stages
 
 | Stage | Purpose | Main entry point | Documentation |
@@ -30,6 +35,7 @@ Produces monthly Sentinel-5P classes and plume-level class summaries.
 | **Stage 0** | Query, inspect, map, and export Carbon Mapper CH4/CO2 plume records. | `stage0/launch_carbonmapper_dashboard_only.ipynb` | [User guide](stage0/README.md), [technical reference](docs/technical-reference.md) |
 | **Stage 1** | Rank Tanager CH4 plumes, associate nearby events, and compare them with daily Sentinel-5P context. | `stage1/stage1_cross_sensor_visibility_final.ipynb` | [User guide](stage1/README.md), [technical reference](docs/stage1-technical-reference.md) |
 | **Stage 2** | Create monthly Sentinel-5P observation/exceedance classes and match Carbon Mapper plumes to them. | `stage2/stage2_complete_bivariate_pipeline_with_plume_matching.ipynb` | [User guide](stage2/README.md), [technical reference](docs/stage2-technical-reference.md) |
+| **Stage 3** | Create local-background anomaly and standardized-enhancement masks, then test plume-event overlap across kernels. | `stage3/stage3_local_anomaly_enhancement_pipeline.ipynb` | [User guide](stage3/README.md), [technical reference](docs/stage3-technical-reference.md) |
 
 ## Repository Structure
 
@@ -45,10 +51,16 @@ Produces monthly Sentinel-5P classes and plume-level class summaries.
 |-- stage2/
 |   |-- README.md
 |   `-- stage2_complete_bivariate_pipeline_with_plume_matching.ipynb
+|-- stage3/
+|   |-- README.md
+|   |-- data/
+|   |   `-- README_data.md
+|   `-- stage3_local_anomaly_enhancement_pipeline.ipynb
 |-- docs/
 |   |-- technical-reference.md
 |   |-- stage1-technical-reference.md
-|   `-- stage2-technical-reference.md
+|   |-- stage2-technical-reference.md
+|   `-- stage3-technical-reference.md
 |-- .gitignore
 |-- README.md
 `-- requirements.txt
@@ -95,6 +107,8 @@ The workflows require some external services:
 - **Stage 1:** Carbon Mapper raster access and Google Earth Engine.
 - **Stage 2:** Google Earth Engine and Google Drive for monthly GeoTIFF
   exports.
+- **Stage 3:** Google Earth Engine, Google Drive, Carbon Mapper plume-event
+  CSVs, and enough CPU/GPU memory for local raster processing.
 
 No API token, password, or Earth Engine credential is stored in this
 repository. Follow the authentication instructions in the relevant stage
@@ -113,6 +127,9 @@ jupyter lab stage1/stage1_cross_sensor_visibility_final.ipynb
 
 # Stage 2
 jupyter lab stage2/stage2_complete_bivariate_pipeline_with_plume_matching.ipynb
+
+# Stage 3
+jupyter lab stage3/stage3_local_anomaly_enhancement_pipeline.ipynb
 ```
 
 Run only one command at a time. Configure the paths, credentials, Earth
@@ -141,7 +158,9 @@ instrument
 
 Stage 1 requires the linked plume and concentration rasters for mask-based
 statistics. Stage 2 primarily requires coordinates, timestamps, and gas, with
-emission, sector, and instrument fields used for optional summaries.
+emission, sector, and instrument fields used for optional summaries. Stage 3
+uses plume-event coordinates and timestamps for point-to-enhancement-mask
+kernel sensitivity tests.
 
 ## Scientific Scope
 
@@ -159,6 +178,8 @@ Important distinctions:
 - Stage 1 comparisons represent coarse temporal and spatial co-visibility.
 - Stage 2 classes represent monthly Sentinel-5P context at plume point
   locations.
+- Stage 3 anomaly masks represent local-background enhancement sensitivity,
+  not direct plume detection.
 - Any emission values retain the units and limitations of their source
   fields unless a stage explicitly documents a conversion.
 
