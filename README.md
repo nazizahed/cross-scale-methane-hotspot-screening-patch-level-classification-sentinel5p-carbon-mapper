@@ -23,6 +23,9 @@ sources.
 
 For the literature framing, thesis assumptions, key numerical results, and
 interpretation limits, see [Thesis context and literature alignment](docs/thesis-context.md).
+Large thesis data products are distributed separately through Google Drive;
+see [Data availability](docs/data-availability.md) and
+[data-manifest.csv](docs/data-manifest.csv).
 
 ## Research Workflow
 
@@ -108,7 +111,9 @@ metrics, and held-out monthly confusion maps.
 ```
 
 Generated datasets, rasters, figures, and maps are intentionally excluded
-from Git. Each stage README describes its expected inputs and outputs.
+from Git. Each stage README describes its expected inputs and outputs. The
+top-level `Data/` folder is ignored and should be restored from the external
+Google Drive dataset when needed.
 
 ## Installation
 

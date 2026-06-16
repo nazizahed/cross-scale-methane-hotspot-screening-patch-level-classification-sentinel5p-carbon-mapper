@@ -13,6 +13,7 @@ venv/
 .env.*
 
 # Generated dashboard data and exports
+Data/
 cm_app_outputs/
 stage1_outputs/
 stage2_outputs/
