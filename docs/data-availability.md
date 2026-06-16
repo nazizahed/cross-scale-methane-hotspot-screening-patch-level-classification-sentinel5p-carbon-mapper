@@ -8,9 +8,7 @@ file manifest.
 
 Google Drive dataset link:
 
-```text
-Pending: add the public Google Drive folder link after sharing is enabled.
-```
+[Thesis Google Drive dataset](https://drive.google.com/drive/folders/1oRmADGQQxX_h1Sd4dcFwoFEzLMHuXN02?usp=drive_link)
 
 Recommended sharing setting:
 
