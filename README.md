@@ -7,7 +7,8 @@ observations with coarse-resolution Sentinel-5P atmospheric measurements.
 The current implementation focuses on Carbon Mapper/Tanager methane plume
 data and Sentinel-5P XCH4. It provides data access, plume prioritization,
 cross-sensor temporal analysis, monthly bivariate mapping, local anomaly
-enhancement, and plume-to-raster matching.
+enhancement, plume-to-raster matching, and CNN patch-level source
+classification.
 
 ## Research Workflow
 
@@ -28,6 +29,11 @@ Produces monthly Sentinel-5P classes and plume-level class summaries.
 Produces local-background anomaly products, standardized enhancement masks,
 and kernel-sensitivity plume-overlap summaries.
 
+**Stage 2 and Stage 3 outputs feed Stage 4: CNN patch classification**
+
+Produces source-associated patch probabilities, model checkpoints, evaluation
+metrics, and held-out monthly confusion maps.
+
 ## Implemented Stages
 
 | Stage | Purpose | Main entry point | Documentation |
@@ -36,6 +42,7 @@ and kernel-sensitivity plume-overlap summaries.
 | **Stage 1** | Rank Tanager CH4 plumes, associate nearby events, and compare them with daily Sentinel-5P context. | `stage1/stage1_cross_sensor_visibility_final.ipynb` | [User guide](stage1/README.md), [technical reference](docs/stage1-technical-reference.md) |
 | **Stage 2** | Create monthly Sentinel-5P observation/exceedance classes and match Carbon Mapper plumes to them. | `stage2/stage2_complete_bivariate_pipeline_with_plume_matching.ipynb` | [User guide](stage2/README.md), [technical reference](docs/stage2-technical-reference.md) |
 | **Stage 3** | Create local-background anomaly and standardized-enhancement masks, then test plume-event overlap across kernels. | `stage3/stage3_local_anomaly_enhancement_pipeline.ipynb` | [User guide](stage3/README.md), [technical reference](docs/stage3-technical-reference.md) |
+| **Stage 4** | Train and evaluate a CNN that classifies monthly raster patches as source-associated or background-like. | `stage4/stage4_cnn_patch_classification_pipeline.ipynb` | [User guide](stage4/README.md), [technical reference](docs/stage4-technical-reference.md) |
 
 ## Repository Structure
 
@@ -56,11 +63,19 @@ and kernel-sensitivity plume-overlap summaries.
 |   |-- data/
 |   |   `-- README_data.md
 |   `-- stage3_local_anomaly_enhancement_pipeline.ipynb
+|-- stage4/
+|   |-- README.md
+|   |-- data/
+|   |   `-- README_data.md
+|   |-- outputs/
+|   |   `-- README_outputs.md
+|   `-- stage4_cnn_patch_classification_pipeline.ipynb
 |-- docs/
 |   |-- technical-reference.md
 |   |-- stage1-technical-reference.md
 |   |-- stage2-technical-reference.md
-|   `-- stage3-technical-reference.md
+|   |-- stage3-technical-reference.md
+|   `-- stage4-technical-reference.md
 |-- .gitignore
 |-- README.md
 `-- requirements.txt
@@ -109,6 +124,8 @@ The workflows require some external services:
   exports.
 - **Stage 3:** Google Earth Engine, Google Drive, Carbon Mapper plume-event
   CSVs, and enough CPU/GPU memory for local raster processing.
+- **Stage 4:** Stage 2 and Stage 3 raster products, Carbon Mapper source-label
+  CSVs, and a PyTorch environment. A GPU is recommended for model training.
 
 No API token, password, or Earth Engine credential is stored in this
 repository. Follow the authentication instructions in the relevant stage
@@ -130,6 +147,9 @@ jupyter lab stage2/stage2_complete_bivariate_pipeline_with_plume_matching.ipynb
 
 # Stage 3
 jupyter lab stage3/stage3_local_anomaly_enhancement_pipeline.ipynb
+
+# Stage 4
+jupyter lab stage4/stage4_cnn_patch_classification_pipeline.ipynb
 ```
 
 Run only one command at a time. Configure the paths, credentials, Earth
@@ -160,7 +180,9 @@ Stage 1 requires the linked plume and concentration rasters for mask-based
 statistics. Stage 2 primarily requires coordinates, timestamps, and gas, with
 emission, sector, and instrument fields used for optional summaries. Stage 3
 uses plume-event coordinates and timestamps for point-to-enhancement-mask
-kernel sensitivity tests.
+kernel sensitivity tests. Stage 4 uses Stage 2 bivariate rasters, Stage 3
+monthly mean XCH4/anomaly/enhancement rasters, and Carbon Mapper named-source
+labels to build a patch catalogue for CNN classification.
 
 ## Scientific Scope
 
@@ -180,6 +202,9 @@ Important distinctions:
   locations.
 - Stage 3 anomaly masks represent local-background enhancement sensitivity,
   not direct plume detection.
+- Stage 4 probabilities represent source-associated monthly patches under
+  constructed labels, not plume detection, facility localization, or emission
+  quantification.
 - Any emission values retain the units and limitations of their source
   fields unless a stage explicitly documents a conversion.
 

@@ -1,3 +1,4 @@
+affine
 earthengine-api
 folium
 geopandas
@@ -16,3 +17,4 @@ scipy
 shapely
 tqdm
 torch
+torchinfo
