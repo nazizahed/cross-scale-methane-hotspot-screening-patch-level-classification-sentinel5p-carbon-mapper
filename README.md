@@ -4,11 +4,25 @@ This repository contains the reproducible software workflows developed for a
 thesis on combining high-resolution hyperspectral greenhouse-gas plume
 observations with coarse-resolution Sentinel-5P atmospheric measurements.
 
+It accompanies the thesis **Machine Learning Fusion of Hyperspectral-derived
+and Sentinel-5P Data for Greenhouse Gas and Air Pollution Mapping** by Sadra
+Zahed Kachaee, M.Sc. Geoinformatics Engineering, Academic Year 2025-2026.
+
 The current implementation focuses on Carbon Mapper/Tanager methane plume
 data and Sentinel-5P XCH4. It provides data access, plume prioritization,
 cross-sensor temporal analysis, monthly bivariate mapping, local anomaly
 enhancement, plume-to-raster matching, and CNN patch-level source
 classification.
+
+The central thesis question is whether monthly Sentinel-5P/TROPOMI
+concentration indicators can provide meaningful regional context for Carbon
+Mapper plume-event records, which geospatial processing choices control that
+interpretation, and how effectively multi-scale monthly raster patches can
+distinguish locations and months associated with observed Carbon Mapper
+sources.
+
+For the literature framing, thesis assumptions, key numerical results, and
+interpretation limits, see [Thesis context and literature alignment](docs/thesis-context.md).
 
 ## Research Workflow
 
@@ -44,6 +58,17 @@ metrics, and held-out monthly confusion maps.
 | **Stage 3** | Create local-background anomaly and standardized-enhancement masks, then test plume-event overlap across kernels. | `stage3/stage3_local_anomaly_enhancement_pipeline.ipynb` | [User guide](stage3/README.md), [technical reference](docs/stage3-technical-reference.md) |
 | **Stage 4** | Train and evaluate a CNN that classifies monthly raster patches as source-associated or background-like. | `stage4/stage4_cnn_patch_classification_pipeline.ipynb` | [User guide](stage4/README.md), [technical reference](docs/stage4-technical-reference.md) |
 
+## Thesis Chapter Mapping
+
+| Thesis chapter | Repository content |
+| --- | --- |
+| Chapter 1: Background and literature context | [Thesis context and literature alignment](docs/thesis-context.md) |
+| Chapter 2: Data and study design | Stage guides plus stage-specific technical references |
+| Chapter 3: Methodology | Stage 0 through Stage 4 notebooks and technical references |
+| Chapter 4: Results | Generated CSV, GeoTIFF, HTML, checkpoint, prediction, and figure outputs stored outside Git |
+| Chapter 5: Discussion | Interpretation boundaries documented in this README and `docs/thesis-context.md` |
+| Chapter 6: Conclusions and future work | Future-work notes in `docs/thesis-context.md` |
+
 ## Repository Structure
 
 ```text
@@ -71,6 +96,7 @@ metrics, and held-out monthly confusion maps.
 |   |   `-- README_outputs.md
 |   `-- stage4_cnn_patch_classification_pipeline.ipynb
 |-- docs/
+|   |-- thesis-context.md
 |   |-- technical-reference.md
 |   |-- stage1-technical-reference.md
 |   |-- stage2-technical-reference.md
@@ -188,13 +214,20 @@ labels to build a patch catalogue for CNN classification.
 
 The workflows support exploratory and reproducible cross-sensor analysis.
 They should not be presented as direct validation of an individual
-high-resolution plume by Sentinel-5P.
+high-resolution plume by Sentinel-5P. The thesis positions Sentinel-5P as a
+regional screening and context layer, Carbon Mapper as plume-resolving
+source-oriented evidence, and Stage 4 as source-associated patch
+prioritization under constructed labels.
 
 Important distinctions:
 
 - Carbon Mapper/Tanager and Sentinel-5P have different spatial resolutions,
   sampling times, retrieval methods, and measurement support.
+- The 0.01 degree Sentinel-5P Level 3 grid is a processing lattice and should
+  not be described as independent 1 km methane sensing.
 - A plume catalogue is not a complete census of emission sources.
+- A Carbon Mapper catalogue row is a plume-event record; it is not the same
+  object as a named source that may have several event records.
 - Plume counts do not necessarily represent unique facilities or independent
   emission events.
 - Stage 1 comparisons represent coarse temporal and spatial co-visibility.
@@ -223,6 +256,22 @@ For thesis results, record:
 
 The stage-specific technical references provide more detailed checklists and
 methodological limitations.
+
+## Thesis Result Anchors
+
+The thesis reports the following headline results for this implementation:
+
+- 4,869 of 5,261 Carbon Mapper methane plume-event records had classified
+  monthly Sentinel-5P raster support.
+- 96.5% of the classified reported rate-estimate sum occurred in cells with
+  at least one monthly threshold exceedance.
+- The Stage 4 CNN reached test AUPRC 0.648 versus a prevalence baseline of
+  0.173, AUROC 0.814, precision 0.643, recall 0.526, and F1 0.579 at the
+  validation-selected threshold of 0.38.
+
+These numbers describe the sampled thesis workflows and constructed labels.
+They are not facility detection probabilities or regional emitted-mass
+estimates.
 
 ## Data Attribution
 

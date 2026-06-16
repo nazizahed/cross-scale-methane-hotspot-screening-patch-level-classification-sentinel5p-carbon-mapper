@@ -104,10 +104,21 @@ Testing:    2025-09 through 2025-12
 This reduces leakage from nearby monthly observations and provides a clearer
 held-out evaluation period.
 
+The thesis patch catalogue has the following class distribution:
+
+| Split | Source patches | No-source patches | Total |
+| --- | ---: | ---: | ---: |
+| Training | 1,058 | 10,872 | 11,930 |
+| Validation | 283 | 1,292 | 1,575 |
+| Test | 380 | 1,822 | 2,202 |
+
 ## Model And Training
 
-The notebook trains a PyTorch CNN using the five raster channels. Default
-training settings include:
+The notebook trains a five-branch PyTorch CNN using the five raster channels.
+Each channel is processed by an independent convolutional branch, the five
+64-element branch outputs are concatenated into a 320-element feature vector,
+and a fully connected classifier head produces one source-associated patch
+logit. Default training settings include:
 
 - patch size: 64 x 64 pixels;
 - batch size: 32;
@@ -130,6 +141,17 @@ notebook does not unintentionally reuse a previous run folder.
 The workflow evaluates validation and test predictions using thresholded
 binary metrics and probability-based diagnostics. The thesis run selected a
 validation probability threshold of 0.38.
+
+On the independent September-December 2025 test set, the thesis reports:
+
+| Metric | Value |
+| --- | ---: |
+| Positive-class prevalence baseline | 0.173 |
+| AUPRC | 0.648 |
+| AUROC | 0.814 |
+| Precision at threshold 0.38 | 0.643 |
+| Recall at threshold 0.38 | 0.526 |
+| F1 at threshold 0.38 | 0.579 |
 
 Main evaluation products include:
 

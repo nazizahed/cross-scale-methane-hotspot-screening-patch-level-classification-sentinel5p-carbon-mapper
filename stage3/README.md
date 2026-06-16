@@ -7,6 +7,8 @@ Carbon Mapper plume-event coordinates against the resulting enhancement masks.
 The workflow is a kernel-sensitivity and contextual-overlap analysis. It is
 not a Sentinel-5P plume-detection-rate estimate and does not replace
 high-resolution Carbon Mapper/Tanager plume observations.
+For the thesis-level research framing and literature context, see
+[../docs/thesis-context.md](../docs/thesis-context.md).
 
 ## Main Notebook
 
@@ -30,6 +32,17 @@ stage3_local_anomaly_enhancement_pipeline.ipynb
 
 The equations, raster-processing details, and assumptions are documented in
 [../docs/stage3-technical-reference.md](../docs/stage3-technical-reference.md).
+
+## Thesis Result Anchor
+
+In the October 2024 Visalia case, the number of six Carbon Mapper plume-event
+records intersecting the `Z >= 2` enhancement mask varied with the
+local-background window: two or three records intersected the smaller and
+intermediate 1-4 degree masks, while all six intersected the 5 and 6 degree
+masks.
+
+This is a processing-scale sensitivity result, not a Sentinel-5P plume
+detection rate.
 
 ## Requirements
 

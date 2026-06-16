@@ -7,6 +7,8 @@ their acquisition month.
 The workflow links each plume point to monthly observation-support and methane
 exceedance classes. It does not validate an individual Carbon Mapper plume
 with Sentinel-5P.
+For the thesis-level research framing and literature context, see
+[../docs/thesis-context.md](../docs/thesis-context.md).
 
 ## Main Notebook
 
@@ -31,6 +33,18 @@ stage2_complete_bivariate_pipeline_with_plume_matching.ipynb
 
 The full method and class encoding are described in
 [../docs/stage2-technical-reference.md](../docs/stage2-technical-reference.md).
+
+## Thesis Result Anchor
+
+The thesis reports that 4,869 of 5,261 Carbon Mapper methane plume-event
+records had classified monthly raster support. Among those classified records,
+165 fell in valid NoEx cells and represented 3.5% of the classified reported
+rate-estimate sum, while 4,704 fell in cells with at least one monthly
+threshold exceedance and represented 96.5%.
+
+This is a contextual association in the sampled catalogue. It is not a
+Sentinel-5P facility detection probability and it is not a regional emitted
+mass estimate.
 
 ## Requirements
 

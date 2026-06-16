@@ -4,6 +4,8 @@ Stage 4 trains and evaluates a convolutional neural network that classifies
 monthly Sentinel-5P-derived raster patches as source-associated or
 background-like. It combines the Stage 2 bivariate context with Stage 3 local
 anomaly and enhancement products and Carbon Mapper named-source labels.
+For the thesis-level research framing and literature context, see
+[../docs/thesis-context.md](../docs/thesis-context.md).
 
 The model output is a source-associated patch probability. It is not a plume
 detection, facility localization, or emission-rate estimate.
@@ -97,6 +99,14 @@ Validation: June 2025 through August 2025
 Test:       September 2025 through December 2025
 ```
 
+The thesis patch catalogue contains:
+
+| Split | Source patches | No-source patches | Total |
+| --- | ---: | ---: | ---: |
+| Training | 1,058 | 10,872 | 11,930 |
+| Validation | 283 | 1,292 | 1,575 |
+| Test | 380 | 1,822 | 2,202 |
+
 ## Running The Notebook
 
 1. Place the Stage 2 and Stage 3 raster products in the expected folders.
@@ -111,6 +121,23 @@ Test:       September 2025 through December 2025
 
 The thesis run used patch size 64, random seed 42, positive-class weight 2.5,
 dropout 0.4, and a validation-selected probability threshold of 0.38.
+
+## Thesis Result
+
+On the independent September-December 2025 test set, the thesis run reports:
+
+| Metric | Value |
+| --- | ---: |
+| Positive-class prevalence baseline | 0.173 |
+| AUPRC | 0.648 |
+| AUROC | 0.814 |
+| Precision at threshold 0.38 | 0.643 |
+| Recall at threshold 0.38 | 0.526 |
+| F1 at threshold 0.38 | 0.579 |
+
+These metrics describe patch classification under the constructed Carbon
+Mapper source-month labels. They are not facility-level detection
+probabilities.
 
 ## Outputs
 

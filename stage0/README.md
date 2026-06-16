@@ -6,6 +6,8 @@ dioxide (CO2) plume observations.
 
 It is the data-access and exploratory-analysis entry point for the thesis
 pipeline. The exported plume CSV can be used as input to Stage 1 and Stage 2.
+For the thesis-level research framing and literature context, see
+[../docs/thesis-context.md](../docs/thesis-context.md).
 
 ## Main Files
 

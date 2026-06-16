@@ -6,6 +6,8 @@ the same spatial and temporal context.
 
 The workflow is intended for cross-sensor contextual comparison. It does not
 claim that Sentinel-5P validates or resolves an individual Tanager plume.
+For the thesis-level research framing and literature context, see
+[../docs/thesis-context.md](../docs/thesis-context.md).
 
 ## Main Notebook
 
