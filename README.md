@@ -124,8 +124,8 @@ Python 3.10-3.12 is recommended.
 ### Windows PowerShell
 
 ```powershell
-git clone https://github.com/nazizahed/thesis-ml-fusion-hyperspectral-sentinel5p-ghg-air-pollution-mapping.git
-cd thesis-ml-fusion-hyperspectral-sentinel5p-ghg-air-pollution-mapping
+git clone https://github.com/nazizahed/cross-scale-methane-hotspot-screening-patch-level-classification-sentinel5p-carbon-mapper.git
+cd cross-scale-methane-hotspot-screening-patch-level-classification-sentinel5p-carbon-mapper
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
@@ -135,8 +135,8 @@ python -m pip install -r requirements.txt
 ### macOS or Linux
 
 ```bash
-git clone https://github.com/nazizahed/thesis-ml-fusion-hyperspectral-sentinel5p-ghg-air-pollution-mapping.git
-cd thesis-ml-fusion-hyperspectral-sentinel5p-ghg-air-pollution-mapping
+git clone https://github.com/nazizahed/cross-scale-methane-hotspot-screening-patch-level-classification-sentinel5p-carbon-mapper.git
+cd cross-scale-methane-hotspot-screening-patch-level-classification-sentinel5p-carbon-mapper
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
