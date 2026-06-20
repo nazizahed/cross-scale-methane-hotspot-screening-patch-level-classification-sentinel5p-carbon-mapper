@@ -1,21 +1,15 @@
-"""
-cm_app_carbonmapper_only.py — Carbon Mapper notebook dashboard (UI + analysis)
-----------------------------------------------------------------
+"""Interactive Carbon Mapper dashboard for thesis Stage 0.
 
-This module is intentionally limited to Carbon Mapper data.
-It does not use Sentinel-5P, TROPOMI, or Earth Engine matching.
-It is suitable for the Stage 0 / interactive dashboard component of the thesis repository.
-Features:
-  • Pick country, (optional) states/provinces, date range, and gas (CH4/CO2)
-  • Fetch plumes via Carbon Mapper API using a compact BBOX AOI (avoids HTTP 413)
-  • Optional fast plume-area estimation (con_tif quantile threshold → vis RGBA fallback)
-  • Per-state stats (count, area, emissions), bar charts, histogram
-  • Choropleth map + plume distribution overlays (points and optional heatmap)
-  • Raw CSV panel to list & download the original fetched CSVs
-Usage:
-  from cm_app_carbonmapper_only import CMApp
-  app = CMApp(cm_token=os.environ.get("CM_TOKEN"))
-  app.display()
+The module queries Carbon Mapper CH4 and CO2 plume-event records, applies
+geospatial and attribute filters, calculates exploratory summaries, renders
+interactive maps and charts, and exports selected records. Sentinel-5P,
+TROPOMI, and Earth Engine processing are outside this stage's scope.
+
+Example:
+    from carbon_mapper_dashboard import CMApp
+
+    app = CMApp(cm_token=os.environ.get("CM_TOKEN"))
+    app.display()
 """
 from __future__ import annotations
 
@@ -343,7 +337,7 @@ class CMApp:
                  country_choices: Optional[list[str]] = None):
         # ee_project is accepted only for backward compatibility and is not used here.
         self.s = CMAppState(cm_token=cm_token, ee_project=ee_project)
-        self.BASE_DIR = "./cm_app_outputs"
+        self.BASE_DIR = "./stage0_outputs"
         os.makedirs(self.BASE_DIR, exist_ok=True)
         self.country_choices = country_choices or [
             "United States of America","Canada","Mexico","Brazil","Argentina",

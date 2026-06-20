@@ -10,7 +10,7 @@ multiple local-background kernel widths.
 The implementation is:
 
 ```text
-stage3/stage3_local_anomaly_enhancement_pipeline.ipynb
+stage3/local_anomaly_enhancement.ipynb
 ```
 
 ## Data Flow

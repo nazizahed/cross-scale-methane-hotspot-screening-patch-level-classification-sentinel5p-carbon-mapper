@@ -3,7 +3,7 @@
 ## Scope
 
 Stage 0 is a notebook-oriented application implemented in
-`stage0/cm_app_carbonmapper_only.py`. The `CMApp` class owns the widget state,
+`stage0/carbon_mapper_dashboard.py`. The `CMApp` class owns the widget state,
 API workflow, tabular and spatial data, plots, and Folium maps. The launcher
 notebook installs/imports the module, requests a token, and creates one
 `CMApp` instance.
@@ -74,7 +74,7 @@ are 60 seconds for the count request and 180 seconds for data pages.
 The raw filename encodes rounded bounding coordinates and dates:
 
 ```text
-cm_app_outputs/plumes_<south>_<north>_<west>_<east>_<YYYYMMDD>_<YYYYMMDD>.csv
+stage0_outputs/plumes_<south>_<north>_<west>_<east>_<YYYYMMDD>_<YYYYMMDD>.csv
 ```
 
 The **Max plumes** widget is applied with `DataFrame.head()` after this
@@ -205,7 +205,7 @@ Important `CMApp` attributes after a successful query:
 | `app.gdf_admin0` | Selected country boundary. |
 | `app.gdf_admin1` | State/province boundaries for the country. |
 | `app.gdf_joined` | Plume GeoDataFrame after the ADM1 spatial join. |
-| `app.BASE_DIR` | Raw CSV output directory, default `./cm_app_outputs`. |
+| `app.BASE_DIR` | Raw CSV output directory, default `./stage0_outputs`. |
 
 Public helper methods:
 

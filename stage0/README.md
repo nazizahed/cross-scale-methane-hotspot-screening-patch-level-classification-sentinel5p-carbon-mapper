@@ -12,8 +12,8 @@ For the thesis-level research framing and literature context, see
 ## Main Files
 
 ```text
-cm_app_carbonmapper_only.py
-launch_carbonmapper_dashboard_only.ipynb
+carbon_mapper_dashboard.py
+carbon_mapper_dashboard.ipynb
 ```
 
 - The Python module implements the API workflow, widgets, statistics, charts,
@@ -22,7 +22,7 @@ launch_carbonmapper_dashboard_only.ipynb
   launches the dashboard.
 
 Implementation details are documented in
-[../docs/technical-reference.md](../docs/technical-reference.md).
+[../docs/stage0-technical-reference.md](../docs/stage0-technical-reference.md).
 
 ## Features
 
@@ -65,14 +65,14 @@ Windows PowerShell:
 
 ```powershell
 $env:CM_TOKEN = "your-token"
-jupyter lab stage0/launch_carbonmapper_dashboard_only.ipynb
+jupyter lab stage0/carbon_mapper_dashboard.ipynb
 ```
 
 macOS or Linux:
 
 ```bash
 export CM_TOKEN="your-token"
-jupyter lab stage0/launch_carbonmapper_dashboard_only.ipynb
+jupyter lab stage0/carbon_mapper_dashboard.ipynb
 ```
 
 Do not place a real token in a notebook cell, Python source file, committed
@@ -83,7 +83,7 @@ environment file, screenshot, or issue report.
 From the repository root:
 
 ```bash
-jupyter lab stage0/launch_carbonmapper_dashboard_only.ipynb
+jupyter lab stage0/carbon_mapper_dashboard.ipynb
 ```
 
 Run the notebook cells from top to bottom through:
@@ -136,7 +136,7 @@ to select or deselect multiple entries.
 Raw API responses are written to:
 
 ```text
-cm_app_outputs/plumes_<bbox>_<start>_<end>.csv
+stage0_outputs/plumes_<bbox>_<start>_<end>.csv
 ```
 
 The output directory is ignored by Git. In Colab, the **Raw CSV** panel can

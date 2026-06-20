@@ -13,7 +13,7 @@ For the thesis-level research framing and literature context, see
 ## Main Notebook
 
 ```text
-stage3_local_anomaly_enhancement_pipeline.ipynb
+local_anomaly_enhancement.ipynb
 ```
 
 ## Workflow
@@ -178,7 +178,7 @@ Change these values to analyze a different month or region.
 From the repository root:
 
 ```bash
-jupyter lab stage3/stage3_local_anomaly_enhancement_pipeline.ipynb
+jupyter lab stage3/local_anomaly_enhancement.ipynb
 ```
 
 Recommended sequence:

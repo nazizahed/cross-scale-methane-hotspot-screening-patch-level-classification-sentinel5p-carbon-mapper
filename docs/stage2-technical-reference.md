@@ -7,7 +7,7 @@ over CONUS and samples those classes at Carbon Mapper plume coordinates. The
 pipeline is implemented in:
 
 ```text
-stage2/stage2_complete_bivariate_pipeline_with_plume_matching.ipynb
+stage2/monthly_bivariate_mapping.ipynb
 ```
 
 ## Data Flow

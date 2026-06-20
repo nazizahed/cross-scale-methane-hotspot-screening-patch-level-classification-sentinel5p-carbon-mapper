@@ -55,11 +55,11 @@ metrics, and held-out monthly confusion maps.
 
 | Stage | Purpose | Main entry point | Documentation |
 | --- | --- | --- | --- |
-| **Stage 0** | Query, inspect, map, and export Carbon Mapper CH4/CO2 plume records. | `stage0/launch_carbonmapper_dashboard_only.ipynb` | [User guide](stage0/README.md), [technical reference](docs/technical-reference.md) |
-| **Stage 1** | Rank Tanager CH4 plumes, associate nearby events, and compare them with daily Sentinel-5P context. | `stage1/stage1_cross_sensor_visibility_final.ipynb` | [User guide](stage1/README.md), [technical reference](docs/stage1-technical-reference.md) |
-| **Stage 2** | Create monthly Sentinel-5P observation/exceedance classes and match Carbon Mapper plumes to them. | `stage2/stage2_complete_bivariate_pipeline_with_plume_matching.ipynb` | [User guide](stage2/README.md), [technical reference](docs/stage2-technical-reference.md) |
-| **Stage 3** | Create local-background anomaly and standardized-enhancement masks, then test plume-event overlap across kernels. | `stage3/stage3_local_anomaly_enhancement_pipeline.ipynb` | [User guide](stage3/README.md), [technical reference](docs/stage3-technical-reference.md) |
-| **Stage 4** | Train and evaluate a CNN that classifies monthly raster patches as source-associated or background-like. | `stage4/stage4_cnn_patch_classification_pipeline.ipynb` | [User guide](stage4/README.md), [technical reference](docs/stage4-technical-reference.md) |
+| **Stage 0** | Query, inspect, map, and export Carbon Mapper CH4/CO2 plume records. | `stage0/carbon_mapper_dashboard.ipynb` | [User guide](stage0/README.md), [technical reference](docs/stage0-technical-reference.md) |
+| **Stage 1** | Rank Tanager CH4 plumes, associate nearby events, and compare them with daily Sentinel-5P context. | `stage1/cross_sensor_visibility.ipynb` | [User guide](stage1/README.md), [technical reference](docs/stage1-technical-reference.md) |
+| **Stage 2** | Create monthly Sentinel-5P observation/exceedance classes and match Carbon Mapper plumes to them. | `stage2/monthly_bivariate_mapping.ipynb` | [User guide](stage2/README.md), [technical reference](docs/stage2-technical-reference.md) |
+| **Stage 3** | Create local-background anomaly and standardized-enhancement masks, then test plume-event overlap across kernels. | `stage3/local_anomaly_enhancement.ipynb` | [User guide](stage3/README.md), [technical reference](docs/stage3-technical-reference.md) |
+| **Stage 4** | Train and evaluate a CNN that classifies monthly raster patches as source-associated or background-like. | `stage4/cnn_patch_classification.ipynb` | [User guide](stage4/README.md), [technical reference](docs/stage4-technical-reference.md) |
 
 ## Thesis Chapter Mapping
 
@@ -78,26 +78,26 @@ metrics, and held-out monthly confusion maps.
 .
 |-- stage0/
 |   |-- README.md
-|   |-- cm_app_carbonmapper_only.py
-|   `-- launch_carbonmapper_dashboard_only.ipynb
+|   |-- carbon_mapper_dashboard.py
+|   `-- carbon_mapper_dashboard.ipynb
 |-- stage1/
 |   |-- README.md
-|   `-- stage1_cross_sensor_visibility_final.ipynb
+|   `-- cross_sensor_visibility.ipynb
 |-- stage2/
 |   |-- README.md
-|   `-- stage2_complete_bivariate_pipeline_with_plume_matching.ipynb
+|   `-- monthly_bivariate_mapping.ipynb
 |-- stage3/
 |   |-- README.md
 |   |-- data/
-|   |   `-- README_data.md
-|   `-- stage3_local_anomaly_enhancement_pipeline.ipynb
+|   |   `-- README.md
+|   `-- local_anomaly_enhancement.ipynb
 |-- stage4/
 |   |-- README.md
 |   |-- data/
-|   |   `-- README_data.md
+|   |   `-- README.md
 |   |-- outputs/
-|   |   `-- README_outputs.md
-|   `-- stage4_cnn_patch_classification_pipeline.ipynb
+|   |   `-- README.md
+|   `-- cnn_patch_classification.ipynb
 |-- docs/
 |   |-- thesis-context.md
 |   |-- technical-reference.md
@@ -168,19 +168,19 @@ Launch the required notebook from the repository root:
 
 ```bash
 # Stage 0
-jupyter lab stage0/launch_carbonmapper_dashboard_only.ipynb
+jupyter lab stage0/carbon_mapper_dashboard.ipynb
 
 # Stage 1
-jupyter lab stage1/stage1_cross_sensor_visibility_final.ipynb
+jupyter lab stage1/cross_sensor_visibility.ipynb
 
 # Stage 2
-jupyter lab stage2/stage2_complete_bivariate_pipeline_with_plume_matching.ipynb
+jupyter lab stage2/monthly_bivariate_mapping.ipynb
 
 # Stage 3
-jupyter lab stage3/stage3_local_anomaly_enhancement_pipeline.ipynb
+jupyter lab stage3/local_anomaly_enhancement.ipynb
 
 # Stage 4
-jupyter lab stage4/stage4_cnn_patch_classification_pipeline.ipynb
+jupyter lab stage4/cnn_patch_classification.ipynb
 ```
 
 Run only one command at a time. Configure the paths, credentials, Earth

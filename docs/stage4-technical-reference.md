@@ -1,7 +1,7 @@
 # Stage 4 Technical Reference: CNN Patch-Level Source Classification
 
 This document describes the technical workflow implemented in
-`stage4/stage4_cnn_patch_classification_pipeline.ipynb`.
+`stage4/cnn_patch_classification.ipynb`.
 
 ## Objective
 

@@ -13,7 +13,7 @@ detection, facility localization, or emission-rate estimate.
 ## Entry Point
 
 ```bash
-jupyter lab stage4/stage4_cnn_patch_classification_pipeline.ipynb
+jupyter lab stage4/cnn_patch_classification.ipynb
 ```
 
 The notebook was designed for a Google Colab or Jupyter environment with

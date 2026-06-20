@@ -12,7 +12,7 @@ For the thesis-level research framing and literature context, see
 ## Main Notebook
 
 ```text
-stage1_cross_sensor_visibility_final.ipynb
+cross_sensor_visibility.ipynb
 ```
 
 ## Workflow
@@ -133,7 +133,7 @@ environment and should not be assumed to work for other users.
 From the repository root:
 
 ```bash
-jupyter lab stage1/stage1_cross_sensor_visibility_final.ipynb
+jupyter lab stage1/cross_sensor_visibility.ipynb
 ```
 
 Then:

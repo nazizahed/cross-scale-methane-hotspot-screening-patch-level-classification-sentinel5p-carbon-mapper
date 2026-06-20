@@ -7,7 +7,7 @@ Sentinel-5P methane context in space and time. It consists of a single
 notebook:
 
 ```text
-stage1/stage1_cross_sensor_visibility_final.ipynb
+stage1/cross_sensor_visibility.ipynb
 ```
 
 The workflow is sequential and file-based. Stage 0 supplies the Carbon Mapper

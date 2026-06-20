@@ -13,7 +13,7 @@ For the thesis-level research framing and literature context, see
 ## Main Notebook
 
 ```text
-stage2_complete_bivariate_pipeline_with_plume_matching.ipynb
+monthly_bivariate_mapping.ipynb
 ```
 
 ## Workflow
@@ -158,7 +158,7 @@ does not already exist.
 From the repository root:
 
 ```bash
-jupyter lab stage2/stage2_complete_bivariate_pipeline_with_plume_matching.ipynb
+jupyter lab stage2/monthly_bivariate_mapping.ipynb
 ```
 
 Recommended sequence:
