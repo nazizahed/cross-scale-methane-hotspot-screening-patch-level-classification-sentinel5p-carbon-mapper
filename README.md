@@ -90,15 +90,9 @@ metrics, and held-out monthly confusion maps.
 |   `-- monthly_bivariate_mapping.ipynb
 |-- stage3/
 |   |-- README.md
-|   |-- data/
-|   |   `-- README.md
 |   `-- local_anomaly_enhancement.ipynb
 |-- stage4/
 |   |-- README.md
-|   |-- data/
-|   |   `-- README.md
-|   |-- outputs/
-|   |   `-- README.md
 |   `-- cnn_patch_classification.ipynb
 |-- docs/
 |   |-- thesis-context.md
@@ -113,9 +107,10 @@ metrics, and held-out monthly confusion maps.
 ```
 
 Generated datasets, rasters, figures, and maps are intentionally excluded
-from Git. Each stage README describes its expected inputs and outputs. The
-top-level `Data/` folder is ignored and should be restored from the external
-Google Drive dataset when needed.
+from Git. Each stage README describes its expected inputs and outputs, while
+the central [data availability guide](docs/data-availability.md) documents the
+Google Drive dataset and restoration procedure. The top-level `Data/` folder
+is ignored and should be restored from that external dataset when needed.
 
 ## Installation
 
