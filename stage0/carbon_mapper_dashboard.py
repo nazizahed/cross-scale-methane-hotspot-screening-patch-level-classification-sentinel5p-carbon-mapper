@@ -35,9 +35,9 @@ from folium.plugins import MarkerCluster, HeatMap
 warnings.filterwarnings("ignore", message=".*unary_union.*")
 
 def load_admin_boundaries(country_name: str, admin_level: int = 1):
-    """Load administrative boundaries from Natural Earth only.
+    """Load Natural Earth administrative boundaries for spatial filtering.
 
-    This version uses only Carbon Mapper plume data and Natural Earth boundaries.
+    The dashboard uses Carbon Mapper plume data with Natural Earth boundaries.
     """
     # Natural Earth fallback
     if admin_level == 0:

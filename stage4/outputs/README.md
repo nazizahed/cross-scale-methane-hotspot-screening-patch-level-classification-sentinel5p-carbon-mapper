@@ -1,6 +1,6 @@
-# Stage 4 Outputs Placeholder
+# Stage 4 Output Products
 
-This folder is intentionally empty in GitHub.
+Generated output files are stored outside Git because of their size.
 
 The notebook can generate:
 

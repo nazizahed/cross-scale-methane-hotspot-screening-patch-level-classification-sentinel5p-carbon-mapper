@@ -1,12 +1,14 @@
-# Machine Learning Fusion of Hyperspectral-derived and Sentinel-5P Data for Greenhouse Gas and Air Pollution Mapping
+# Cross-Scale Methane Hotspot Screening and Patch-Level Source-Associated Classification with Sentinel-5P and Carbon Mapper
 
 This repository contains the reproducible software workflows developed for a
-thesis on combining high-resolution hyperspectral greenhouse-gas plume
-observations with coarse-resolution Sentinel-5P atmospheric measurements.
+thesis on integrating regional Sentinel-5P methane fields with plume-resolving
+Carbon Mapper observations without conflating their different measurement
+supports and product meanings.
 
-It accompanies the thesis **Machine Learning Fusion of Hyperspectral-derived
-and Sentinel-5P Data for Greenhouse Gas and Air Pollution Mapping** by Sadra
-Zahed Kachaee, M.Sc. Geoinformatics Engineering, Academic Year 2025-2026.
+It accompanies the thesis **Cross-Scale Methane Hotspot Screening and
+Patch-Level Source-Associated Classification with Sentinel-5P and Carbon
+Mapper** by Sadra Zahed Kachaee, M.Sc. Geoinformatics Engineering, Academic
+Year 2025-2026.
 
 The current implementation focuses on Carbon Mapper/Tanager methane plume
 data and Sentinel-5P XCH4. It provides data access, plume prioritization,
@@ -100,7 +102,7 @@ metrics, and held-out monthly confusion maps.
 |   `-- cnn_patch_classification.ipynb
 |-- docs/
 |   |-- thesis-context.md
-|   |-- technical-reference.md
+|   |-- stage0-technical-reference.md
 |   |-- stage1-technical-reference.md
 |   |-- stage2-technical-reference.md
 |   |-- stage3-technical-reference.md

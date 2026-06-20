@@ -185,7 +185,7 @@ The default workflow produces:
 
 ```text
 stage1_outputs/
-|-- tanager_ch4_cleaned.csv
+|-- tanager_ch4_standardized.csv
 |-- tanager_with_nvalid_meanch4.csv
 |-- scored_weighted_sum_normalized.csv
 |-- top_20_plumes_WNS.csv

@@ -62,7 +62,7 @@ python -m pip install -r requirements.txt
 ```
 
 PyTorch installation can vary by CPU/GPU/CUDA platform. If the shared
-requirements install a CPU-only version but you need GPU acceleration, install
+requirements install a CPU-only version but GPU acceleration is required, install
 the PyTorch build recommended for your runtime before running the notebook.
 
 ## Required Input
