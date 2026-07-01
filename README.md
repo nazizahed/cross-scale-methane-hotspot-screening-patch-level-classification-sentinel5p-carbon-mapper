@@ -25,7 +25,7 @@ sources.
 
 For the literature framing, thesis assumptions, key numerical results, and
 interpretation limits, see [Thesis context and literature alignment](docs/thesis-context.md).
-Large thesis data products are distributed separately through Google Drive;
+Large thesis data products are distributed separately through Zenodo;
 see [Data availability](docs/data-availability.md) and
 [data-manifest.csv](docs/data-manifest.csv).
 
@@ -109,8 +109,8 @@ metrics, and held-out monthly confusion maps.
 Generated datasets, rasters, figures, and maps are intentionally excluded
 from Git. Each stage README describes its expected inputs and outputs, while
 the central [data availability guide](docs/data-availability.md) documents the
-Google Drive dataset and restoration procedure. The top-level `Data/` folder
-is ignored and should be restored from that external dataset when needed.
+Zenodo dataset and restoration procedure. The top-level `Data/` folder is
+ignored and should be restored from that external dataset when needed.
 
 ## Installation
 
@@ -148,10 +148,11 @@ The workflows require some external services:
 
 - **Stage 0:** a Carbon Mapper API token.
 - **Stage 1:** Carbon Mapper raster access and Google Earth Engine.
-- **Stage 2:** Google Earth Engine and Google Drive for monthly GeoTIFF
-  exports.
-- **Stage 3:** Google Earth Engine, Google Drive, Carbon Mapper plume-event
-  CSVs, and enough CPU/GPU memory for local raster processing.
+- **Stage 2:** Google Earth Engine and an export destination for monthly
+  GeoTIFF products.
+- **Stage 3:** Google Earth Engine, Carbon Mapper plume-event CSVs, an export
+  destination for monthly XCH4 rasters, and enough CPU/GPU memory for local
+  raster processing.
 - **Stage 4:** Stage 2 and Stage 3 raster products, Carbon Mapper source-label
   CSVs, and a PyTorch environment. A GPU is recommended for model training.
 
@@ -278,6 +279,13 @@ estimates.
 ## Data Attribution
 
 Users are responsible for complying with the access, licensing, citation, and
-attribution requirements of Carbon Mapper, Sentinel-5P/Copernicus, Google
-Earth Engine, Natural Earth, TIGER/Line, and any other source data used in an
-analysis.
+attribution requirements of the Zenodo thesis dataset, Carbon Mapper,
+Sentinel-5P/Copernicus, Google Earth Engine, Natural Earth, TIGER/Line, and
+any other source data used in an analysis.
+
+Dataset citation:
+
+Zahed Kachaee, S., Yordanov, V., & Brovelli, M. A. (2026).
+*Cross-Scale Methane Hotspot Screening and Patch-Level Source-Associated
+Classification with Sentinel-5P and Carbon Mapper* (v1.0.0). Zenodo.
+https://doi.org/10.5281/zenodo.21080361

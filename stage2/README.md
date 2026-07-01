@@ -24,7 +24,7 @@ monthly_bivariate_mapping.ipynb
 4. Build monthly exceedance count (`Ec`) rasters using XCH4 > 1900 ppb.
 5. Calculate optional monthly mean XCH4 rasters.
 6. Encode fixed-bin bivariate classes, including NoData and NoEx.
-7. Optionally submit monthly GeoTIFF exports to Google Drive.
+7. Optionally submit monthly GeoTIFF exports through Earth Engine.
 8. Optionally reconstruct bivariate rasters locally from `Vc` and `Ec`.
 9. Load and standardize a Carbon Mapper CH4 plume catalogue.
 10. Sample the matching year-month bivariate raster at every plume point.
@@ -51,9 +51,9 @@ mass estimate.
 - Python 3.10-3.12 is recommended.
 - Packages in the repository-level `requirements.txt`.
 - Google Earth Engine access.
-- Google Drive storage for Earth Engine exports.
+- An Earth Engine export destination for monthly GeoTIFF products.
 - A Carbon Mapper plume CSV from Stage 0 or another catalogue export.
-- Sufficient Drive capacity for monthly CONUS GeoTIFF products.
+- Sufficient storage capacity for monthly CONUS GeoTIFF products.
 
 Install dependencies from the repository root:
 
@@ -118,7 +118,8 @@ period therefore covers 36 months.
 
 ### Paths
 
-The supplied paths target Google Colab and mounted Google Drive:
+The supplied paths target Google Colab and mounted Google Drive as a runtime
+export workspace:
 
 ```python
 GEE_DRIVE_FOLDER = "stage2_bivariate_exports"
@@ -167,7 +168,7 @@ Recommended sequence:
 2. Run Earth Engine initialization.
 3. Keep exports disabled and inspect the product definitions.
 4. Enable exports only when ready and submit the monthly tasks.
-5. Wait for Earth Engine tasks to complete in Google Drive.
+5. Wait for Earth Engine export tasks to complete.
 6. Confirm `LOCAL_RASTER_DIR` contains the exported GeoTIFFs.
 7. Run local reconstruction and raster code QA.
 8. Set `PLUME_CSV` and run plume standardization.
@@ -261,8 +262,8 @@ is an authorized Cloud project.
 **Exports do not appear locally**
 
 Earth Engine tasks may still be queued or running. Check task status and the
-configured Google Drive folder. Drive mounting or synchronization can also
-delay local visibility.
+configured export folder. Drive mounting or synchronization can also delay
+local visibility when using a Colab/Drive workspace.
 
 **Missing valid/exceedance raster**
 

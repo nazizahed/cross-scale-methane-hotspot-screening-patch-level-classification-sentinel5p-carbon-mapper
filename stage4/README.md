@@ -153,8 +153,8 @@ Generated outputs include:
 - monthly confusion maps for held-out patches;
 - optional wall-to-wall source-probability maps.
 
-Do not commit these generated outputs to Git. Store them in Google Drive,
-Zenodo, institutional storage, or another documented data repository.
+Do not commit these generated outputs to Git. Store reproducibility data in
+the Zenodo thesis dataset or another documented data repository.
 
 ## Technical Details
 

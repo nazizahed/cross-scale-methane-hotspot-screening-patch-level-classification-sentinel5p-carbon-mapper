@@ -49,7 +49,7 @@ detection rate.
 - Python 3.10-3.12 is recommended.
 - Packages in the repository-level `requirements.txt`.
 - Google Earth Engine access.
-- Google Drive storage for monthly mean XCH4 exports.
+- An Earth Engine export destination for monthly mean XCH4 rasters.
 - A Carbon Mapper plume-event CSV with longitude, latitude, and preferably
   timestamp/gas columns.
 - GPU runtime is recommended for large kernels or full-archive local
@@ -76,8 +76,9 @@ XCH4_mean_YYYY_MM_CONUSbuf2p5deg.tif
 ```
 
 These can be exported by the notebook's Earth Engine section. Large rasters
-should remain outside Git and be stored in Google Drive, Zenodo,
-institutional storage, or release assets.
+should remain outside Git. The thesis data release is stored on Zenodo; Google
+Drive may still be used as a temporary Earth Engine export destination during
+notebook execution.
 
 ### Carbon Mapper plume-event CSV
 
@@ -147,7 +148,8 @@ converts each width to a pixel radius using `PIXEL_DEG = 0.01`.
 
 ### Paths
 
-The default paths target Google Colab and mounted Google Drive:
+The default paths target Google Colab and mounted Google Drive as a runtime
+export workspace:
 
 ```python
 ROOT = Path("/content/drive/MyDrive/stage3_local_anomaly")

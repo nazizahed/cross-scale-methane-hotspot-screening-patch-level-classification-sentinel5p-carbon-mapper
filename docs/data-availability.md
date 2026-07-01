@@ -1,29 +1,28 @@
 # Data Availability
 
-Large thesis data products are distributed outside Git through Google Drive.
-The repository tracks only code, notebooks, documentation, and a lightweight
-file manifest.
+Large thesis data products are distributed outside Git through Zenodo. The
+repository tracks only code, notebooks, documentation, and a lightweight file
+manifest.
 
 ## Dataset Location
 
-Google Drive dataset link:
+The official thesis dataset is archived on Zenodo:
 
-[Thesis Google Drive dataset](https://drive.google.com/drive/folders/1oRmADGQQxX_h1Sd4dcFwoFEzLMHuXN02?usp=drive_link)
+[https://doi.org/10.5281/zenodo.21080361](https://doi.org/10.5281/zenodo.21080361)
 
-Recommended sharing setting:
+Dataset citation:
 
 ```text
-General access: Anyone with the link
-Role: Viewer
+Zahed Kachaee, S., Yordanov, V., & Brovelli, M. A. (2026).
+Cross-Scale Methane Hotspot Screening and Patch-Level Source-Associated
+Classification with Sentinel-5P and Carbon Mapper (v1.0.0). Zenodo.
+https://doi.org/10.5281/zenodo.21080361
 ```
-
-If the dataset is private during review, share the folder directly with the
-examiner, supervisor, or collaborator Google accounts instead of using public
-link access.
 
 ## Local Folder Layout
 
-After downloading or syncing the dataset, place it at the repository root as:
+After downloading the Zenodo dataset files, place or extract the dataset at
+the repository root as:
 
 ```text
 Data/
@@ -55,8 +54,8 @@ files with:
 - byte size;
 - SHA-256 checksum.
 
-Use the manifest to verify that a downloaded Google Drive copy matches the
-dataset used by the thesis repository.
+Use the manifest to verify that a downloaded Zenodo copy matches the dataset
+used by the thesis repository.
 
 ## Verify A Download
 
@@ -95,6 +94,6 @@ than 50 MiB. Although the largest file in this dataset is below 100 MiB, the
 full folder is over 2 GB, which would make the repository slow to clone and
 would permanently inflate Git history.
 
-For reproducibility, keep large rasters and generated model products in Google
-Drive, Zenodo, institutional storage, or GitHub Releases, and keep only
-manifest files and access instructions in the repository.
+For reproducibility, keep large rasters and generated model products in the
+Zenodo thesis dataset or another citable data repository, and keep only
+manifest files and access instructions in the Git repository.
